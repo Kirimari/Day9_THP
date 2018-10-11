@@ -13,11 +13,11 @@ end
 #puts crypto("https://coinmarketcap.com/currencies/ethereum/")
 
 def get_name_and_value_of_crypto
-  doc = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))
+  doc = Nokogiri::HTML(open('https://coinmarketcap.com/all/views/all/'))
   urls = []
   all_cryptos = []
   doc.xpath('//a[@class = "link-secondary"]/@href').each do |name_crypto|
-    urls << "https://coinmarketcap.com" + name_crypto.text
+    urls << 'https://coinmarketcap.com' + name_crypto.text
 	end
   urls.each do |url|
     p a = crypto(url)
